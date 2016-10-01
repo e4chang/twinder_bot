@@ -8,13 +8,13 @@ CREATE TABLE Matches(
     id2 INTEGER UNIQUE
 );
 
-CREATE VIEW MatchedUsers(id) AS 
+CREATE VIEW MatchedUsers AS 
     SELECT id1 FROM Matches
     UNION 
     SELECT id2 FROM Matches; 
 
 
-CREATE VIEW UnmatchedUsers(id) AS 
+CREATE VIEW UnmatchedUsers AS 
     SELECT id FROM Users
     WHERE id NOT IN MatchedUsers;
 
